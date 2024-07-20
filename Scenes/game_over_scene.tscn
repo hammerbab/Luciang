@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbbuwct2nh2k5"]
+
+[ext_resource type="Script" path="res://Scripts/menu_manager.gd" id="1_1t4b3"]
+
+[node name="GameOverScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOverManager" type="Node" parent="."]
+script = ExtResource("1_1t4b3")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 460.0
+offset_top = 344.0
+offset_right = 717.0
+offset_bottom = 445.0
+theme_override_font_sizes/font_size = 32
+text = "재시작"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 478.0
+offset_top = 125.0
+offset_right = 678.0
+offset_bottom = 262.0
+theme_override_font_sizes/font_size = 100
+text = "사망"
+
+[connection signal="pressed" from="Button" to="GameOverManager" method="to_menu"]

@@ -1,0 +1,130 @@
+[gd_scene load_steps=8 format=3 uid="uid://05383nyoe8sc"]
+
+[ext_resource type="Script" path="res://Scripts/SummonObject.cs" id="1_ksjou"]
+[ext_resource type="Texture2D" uid="uid://cinkuchue6cxv" path="res://Sprites/Hogu.png" id="2_t5mdm"]
+[ext_resource type="Texture2D" uid="uid://dpl61cwvpu4xe" path="res://Sprites/select.png" id="3_vy5f6"]
+
+[sub_resource type="Animation" id="Animation_pgkup"]
+resource_name = "circle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.701961)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.6, 1.6), Vector2(1.5, 1.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_q6iag"]
+resource_name = "dis"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1.5, 1.5), Vector2(1.8, 1), Vector2(0, 1.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ix2n8"]
+_data = {
+"circle": SubResource("Animation_pgkup"),
+"dis": SubResource("Animation_q6iag")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pk6cn"]
+radius = 78.5
+height = 178.0
+
+[node name="Sandbag" type="RigidBody2D" node_paths=PackedStringArray("selectCircle", "circlePlayer", "col", "spr")]
+collision_layer = 3
+collision_mask = 3
+mass = 40.0
+sleeping = true
+lock_rotation = true
+freeze = true
+linear_damp = 49.175
+script = ExtResource("1_ksjou")
+selectCircle = NodePath("Sprite2D/SelectCircle")
+circlePlayer = NodePath("Sprite2D/SelectCircle/AnimationPlayer")
+killScore = 100
+col = NodePath("CollisionShape2D")
+spr = NodePath("Sprite2D")
+maxHP = 100
+range = 100.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_t5mdm")
+offset = Vector2(0, -100)
+
+[node name="SelectCircle" type="Sprite2D" parent="Sprite2D"]
+visible = false
+position = Vector2(-10, 26)
+texture = ExtResource("3_vy5f6")
+offset = Vector2(0, -128)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D/SelectCircle"]
+libraries = {
+"": SubResource("AnimationLibrary_ix2n8")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-11, -66)
+shape = SubResource("CapsuleShape2D_pk6cn")

@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://c68sd45bpm7nm"]
+
+[ext_resource type="Script" path="res://Scripts/menu_manager.gd" id="1_c6gf2"]
+[ext_resource type="Texture2D" uid="uid://c2mw8tiwxlfd6" path="res://Sprites/sammanli.png" id="1_fpcgj"]
+
+[node name="MenuScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuManager" type="Node" parent="."]
+script = ExtResource("1_c6gf2")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 244.0
+offset_top = 35.0
+offset_right = 1712.0
+offset_bottom = 1167.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_fpcgj")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 754.0
+offset_top = 453.0
+offset_right = 1011.0
+offset_bottom = 554.0
+theme_override_font_sizes/font_size = 32
+text = "시작"
+
+[connection signal="pressed" from="Button" to="MenuManager" method="game_start"]
