@@ -119,7 +119,6 @@ public partial class Player : HealthObject
 
 	public override void _PhysicsProcess(double delta)
 	{
-
 		if(fireTrigger && targetBody != null && IsInstanceValid(targetBody))
 		{
 			if(GlobalPosition.DistanceTo(target.GlobalPosition) <= range) //사거리 안이다
@@ -129,11 +128,10 @@ public partial class Player : HealthObject
 				if(curCool >= maxCool)
 				{
 					curCool = 0;
-					maxCool = 0.6f;
+					maxCool = 0.4f;
 					gm.SummonBullet(0, GlobalPosition, Vector2.Zero, 30, 3000f, true, this, target, false);
 				}
-
-				fireTrigger = false;
+				
 				haveToMove = false;
 			}
 			else //아직 더 걸어가야 한다

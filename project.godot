@@ -13,7 +13,7 @@ config_version=5
 config/name="Luciang"
 run/main_scene="res://Scenes/menu_scene.tscn"
 config/features=PackedStringArray("4.2", "C#", "GL Compatibility")
-config/icon="res://Sprites/Luciang.png"
+config/icon="res://Sprites/sammanli.png"
 
 [autoload]
 

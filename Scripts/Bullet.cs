@@ -27,7 +27,7 @@ public partial class Bullet : Area2D
 	{
 		if(isTargeting)
 		{
-			if( !IsInstanceValid(target) || target == null) this.QueueFree();
+			if( target.dead || !IsInstanceValid(target) || target == null) this.QueueFree();
 
 			LookAt(target.GlobalPosition);
 			dir = (target.GlobalPosition - GlobalPosition).Normalized();

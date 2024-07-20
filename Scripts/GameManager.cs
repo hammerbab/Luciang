@@ -37,7 +37,7 @@ public partial class GameManager : Node
 		player = GetTree().Root.GetNode<Player>("GameScene/Player");
 
 		await Task.Delay(1);
-		Summon(0, Vector2.Zero);
+		Summon(0, Vector2.Up * 300f);
 
 		RandomSummon(); //임시
 	}
@@ -48,9 +48,9 @@ public partial class GameManager : Node
 		while(true)
 		{
 			if(player.dead) return;
-			await Task.Delay(random.RandiRange(1000, 4000));
+			await Task.Delay(random.RandiRange(3000, 6000));
 
-			Summon(0, cam.GlobalPosition + new Vector2(random.RandfRange(-800, 800), random.RandfRange(-700, -2000)));
+			Summon(0, cam.GlobalPosition + new Vector2(random.RandfRange(-800, 800), random.RandfRange(-700, -1100)));
 		}
 	}
 
