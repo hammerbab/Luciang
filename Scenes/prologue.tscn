@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7qr1pxi5g1nm"]
+
+[ext_resource type="Script" path="res://Scripts/PrologueManager.gd" id="1_7x6bb"]
+[ext_resource type="Texture2D" uid="uid://dlb38kjjqsbbu" path="res://Sprites/Prologue1.png" id="2_u16wg"]
+[ext_resource type="Texture2D" uid="uid://c0njlltp4cvqq" path="res://Sprites/Prologue2.png" id="3_grftk"]
+[ext_resource type="Texture2D" uid="uid://b2qa2g5lmq8dv" path="res://Sprites/Prologue3.png" id="4_prrcd"]
+
+[node name="PrologueScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PrologueManager" type="Node" parent="." node_paths=PackedStringArray("picture")]
+script = ExtResource("1_7x6bb")
+picture = NodePath("../Pic")
+texture1 = ExtResource("2_u16wg")
+texture2 = ExtResource("3_grftk")
+texture3 = ExtResource("4_prrcd")
+
+[node name="Pic" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 279.0
+offset_top = -17.0
+offset_right = 945.0
+offset_bottom = 649.0
+texture_normal = ExtResource("2_u16wg")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 137.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 70
+text = "프롤로그"
+
+[connection signal="pressed" from="Pic" to="PrologueManager" method="_on_pic_pressed"]

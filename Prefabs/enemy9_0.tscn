@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7ww1uc5vmsop"]
+
+[ext_resource type="Script" path="res://Scripts/SummonObject.cs" id="1_ir5id"]
+
+[node name="Sandbag" type="RigidBody2D" node_paths=PackedStringArray("hpBar", "col")]
+process_mode = 1
+collision_layer = 3
+collision_mask = 3
+mass = 40.0
+sleeping = true
+lock_rotation = true
+freeze = true
+linear_damp = 49.175
+script = ExtResource("1_ir5id")
+id = 90
+hpBar = NodePath("ProgressBar")
+hitHeal = 0
+col = NodePath("CollisionShape2D")
+maxHP = 10000
+
+[node name="Label" type="Label" parent="."]
+offset_left = -375.0
+offset_top = -88.0
+offset_right = 375.0
+offset_bottom = 77.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 50
+theme_override_font_sizes/font_size = 120
+text = "Stage 1 Clear"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
+offset_right = 4.0
+offset_bottom = 27.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false

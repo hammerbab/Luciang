@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cbbuwct2nh2k5"]
+[gd_scene load_steps=4 format=3 uid="uid://cbbuwct2nh2k5"]
 
 [ext_resource type="Script" path="res://Scripts/menu_manager.gd" id="1_1t4b3"]
+[ext_resource type="AudioStream" uid="uid://biajj1cesu4u" path="res://Audios/Friday Afternoon Loop.wav" id="2_06d3i"]
+[ext_resource type="Script" path="res://Scripts/ScoreLabel.cs" id="3_rpfi6"]
 
 [node name="GameOverScene" type="Control"]
 layout_mode = 3
@@ -30,5 +32,20 @@ offset_right = 678.0
 offset_bottom = 262.0
 theme_override_font_sizes/font_size = 100
 text = "사망"
+
+[node name="bg,m" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_06d3i")
+autoplay = true
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 327.0
+offset_top = 230.0
+offset_right = 853.0
+offset_bottom = 369.0
+theme_override_font_sizes/font_size = 46
+text = "점수: "
+horizontal_alignment = 1
+script = ExtResource("3_rpfi6")
 
 [connection signal="pressed" from="Button" to="GameOverManager" method="to_menu"]

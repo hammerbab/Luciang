@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://c68sd45bpm7nm"]
+[gd_scene load_steps=6 format=3 uid="uid://c68sd45bpm7nm"]
 
 [ext_resource type="Script" path="res://Scripts/menu_manager.gd" id="1_c6gf2"]
 [ext_resource type="Texture2D" uid="uid://c2mw8tiwxlfd6" path="res://Sprites/sammanli.png" id="1_fpcgj"]
+[ext_resource type="Script" path="res://Scripts/HighScore.cs" id="3_o3pf3"]
+[ext_resource type="AudioStream" uid="uid://bfl13wlhg4wj3" path="res://Audios/Deck the Halls Jazz Loop.wav" id="3_u4ipd"]
+[ext_resource type="PackedScene" uid="uid://c7qr1pxi5g1nm" path="res://Scenes/prologue.tscn" id="4_x6lqf"]
 
 [node name="MenuScene" type="Control"]
 layout_mode = 3
@@ -11,25 +14,63 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MenuManager" type="Node" parent="."]
+[node name="MenuManager" type="Node" parent="." node_paths=PackedStringArray("menu", "prologue")]
 script = ExtResource("1_c6gf2")
+menu = NodePath("../TextureRect")
+prologue = NodePath("../PrologueScene")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 244.0
-offset_top = 35.0
-offset_right = 1712.0
-offset_bottom = 1167.0
-scale = Vector2(0.5, 0.5)
+offset_left = 160.0
+offset_top = -7.0
+offset_right = 1628.0
+offset_bottom = 1125.0
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_fpcgj")
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="TextureRect"]
 layout_mode = 0
-offset_left = 754.0
-offset_top = 453.0
-offset_right = 1011.0
-offset_bottom = 554.0
-theme_override_font_sizes/font_size = 32
+offset_left = 910.0
+offset_top = 852.0
+offset_right = 1375.0
+offset_bottom = 1039.0
+theme_override_font_sizes/font_size = 90
 text = "시작"
 
-[connection signal="pressed" from="Button" to="MenuManager" method="game_start"]
+[node name="HighScore" type="Label" parent="TextureRect"]
+offset_left = 883.333
+offset_top = 305.0
+offset_right = 2866.33
+offset_bottom = 807.0
+theme_override_colors/font_color = Color(1, 0, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "하이스코어:"
+vertical_alignment = 1
+script = ExtResource("3_o3pf3")
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 760.0
+offset_right = 2003.0
+offset_bottom = 1262.0
+theme_override_colors/font_color = Color(1, 0, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "팁:
+마우스 클릭으로 이동
+적을 우클릭하면 공격
+좌클릭하면 그 방향으로 대쉬"
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_u4ipd")
+autoplay = true
+
+[node name="PrologueScene" parent="." instance=ExtResource("4_x6lqf")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="TextureRect/Button" to="MenuManager" method="game_start"]

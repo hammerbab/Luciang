@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2y4fuy2tx6i7"]
+
+[ext_resource type="Script" path="res://Scripts/Bullet.cs" id="1_qd50o"]
+[ext_resource type="Texture2D" uid="uid://dttdnpqvkays8" path="res://Sprites/CowboySlash.png" id="2_qd2sk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vuhey"]
+radius = 55.0001
+height = 722.0
+
+[node name="Bullet" type="Area2D"]
+process_mode = 1
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_qd50o")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 1)
+texture = ExtResource("2_qd2sk")
+offset = Vector2(0, -128)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(100, -26)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_vuhey")

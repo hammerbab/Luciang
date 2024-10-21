@@ -1,5 +1,8 @@
 extends Node
 
+@export var menu : Control
+@export var prologue : Control
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -12,4 +15,5 @@ func to_menu():
 	Loading.load_scene("res://Scenes/menu_scene.tscn")
 
 func game_start():
-	Loading.load_scene("res://Scenes/game_scene.tscn")
+	menu.visible = false
+	prologue.visible = true

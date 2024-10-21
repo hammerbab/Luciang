@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bfl13wlhg4wj3"
+path="res://.godot/imported/Deck the Halls Jazz Loop.wav-1e1dbe25878fae8521b893b926b659f2.sample"
+
+[deps]
+
+source_file="res://Audios/Deck the Halls Jazz Loop.wav"
+dest_files=["res://.godot/imported/Deck the Halls Jazz Loop.wav-1e1dbe25878fae8521b893b926b659f2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

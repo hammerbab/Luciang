@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://ns3xlnf5yyqq"]
+
+[ext_resource type="Script" path="res://Scripts/menu_manager.gd" id="1_0hv3w"]
+[ext_resource type="AudioStream" uid="uid://biajj1cesu4u" path="res://Audios/Friday Afternoon Loop.wav" id="2_f6qnh"]
+[ext_resource type="Script" path="res://Scripts/ScoreLabel.cs" id="2_xsk2f"]
+
+[node name="GameOverScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOverManager" type="Node" parent="."]
+script = ExtResource("1_0hv3w")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 460.0
+offset_top = 344.0
+offset_right = 717.0
+offset_bottom = 445.0
+theme_override_font_sizes/font_size = 32
+text = "재시작"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 337.0
+offset_top = 102.0
+offset_right = 863.0
+offset_bottom = 241.0
+theme_override_font_sizes/font_size = 100
+text = "게임 클리어"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 327.0
+offset_top = 230.0
+offset_right = 853.0
+offset_bottom = 369.0
+theme_override_font_sizes/font_size = 46
+text = "점수: "
+horizontal_alignment = 1
+script = ExtResource("2_xsk2f")
+
+[node name="bg,m" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_f6qnh")
+autoplay = true
+
+[connection signal="pressed" from="Button" to="GameOverManager" method="to_menu"]
