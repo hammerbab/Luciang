@@ -535,6 +535,38 @@ public partial class SummonObject : HealthObject
 				
 				await Task.Delay(1500);
 				if(player.dead || dead) break; //자신 혹은 플레이어 사망시 움직임 멈춤
+
+				if(player.dead || dead) break; //자신 혹은 플레이어 사망시 움직임 멈춤
+				moveDir = GlobalPosition.DirectionTo(player.GlobalPosition);
+				moveSpd = GlobalPosition.DistanceTo(player.GlobalPosition) * 0.4f;
+
+				if(so2 != null) so2.QueueFree();
+				so2 = gm.Summon(42, GlobalPosition); //자폭병기소환
+				so2.killScore = 0;
+
+				await Task.Delay(1500);
+
+				if(player.dead || dead) break; //자신 혹은 플레이어 사망시 움직임 멈춤
+				await gm.SummonShine(GlobalPosition);
+				if(player.dead || dead) break; //자신 혹은 플레이어 사망시 움직임 멈춤
+
+				for(int i = 0; i < 10; i++)
+				{
+					if(player.dead || dead) break; //자신 혹은 플레이어 사망시 움직임 멈춤
+
+					Vector2 dir = GlobalPosition.DirectionTo(player.GlobalPosition);
+					Bullet genBullet = gm.SummonBullet(0, GlobalPosition, dir.Rotated(Mathf.DegToRad((i%2==0?i:-i)*7f)), 30, 700, false, this, null, i == 0);
+				}
+
+				await Task.Delay(300);
+				if(player.dead || dead) break; //자신 혹은 플레이어 사망시 움직임 멈춤
+				if(GlobalPosition.DistanceTo(player.GlobalPosition) <= range)
+				{
+					gm.SummonBullet(1, player.GlobalPosition, Vector2.Zero, 30, 600, false, this);
+				}
+				
+				await Task.Delay(1500);
+				if(player.dead || dead) break; //자신 혹은 플레이어 사망시 움직임 멈춤
 			}
 		}
 		if(id == 45)
@@ -850,7 +882,7 @@ public partial class SummonObject : HealthObject
 				player.col.SetProcess(false);
 
 				gm.Summon(0, cam.GlobalPosition + new Vector2(0, -800));
-				gm.Summon(200, cam.GlobalPosition + new Vector2(0, -800));
+				gm.Summon(0, cam.GlobalPosition + new Vector2(200, -800));
 
 				await Task.Delay(12000);
 				gm.Summon(44, cam.GlobalPosition + new Vector2(0, -800));
@@ -871,7 +903,7 @@ public partial class SummonObject : HealthObject
 				player.col.SetProcess(false);
 
 				gm.Summon(0, cam.GlobalPosition + new Vector2(0, -800));
-				gm.Summon(200, cam.GlobalPosition + new Vector2(0, -800));
+				gm.Summon(0, cam.GlobalPosition + new Vector2(200, -800));
 
 				await Task.Delay(12000);
 				gm.Summon(45, cam.GlobalPosition + new Vector2(0, -800));
@@ -891,7 +923,7 @@ public partial class SummonObject : HealthObject
 				player.col.SetProcess(false);
 
 				gm.Summon(0, cam.GlobalPosition + new Vector2(0, -800));
-				gm.Summon(200, cam.GlobalPosition + new Vector2(0, -800));
+				gm.Summon(0, cam.GlobalPosition + new Vector2(200, -800));
 
 				await Task.Delay(12000);
 				gm.Summon(49, cam.GlobalPosition + new Vector2(0, -800));
