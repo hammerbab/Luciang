@@ -264,8 +264,8 @@ public partial class GameManager : Node
 		await Task.Delay(1000);
 		Summon_Short_RandomX(20);
 		await Task.Delay(4000);
-		Summon_Short_RandomX(20);
-		Summon_Short_RandomX(1);
+		Summon_Short(20, 300);
+		Summon_Short(1, 0);
 		await Task.Delay(3500);
 		Summon_Short(1, 800);
 		Summon_Short(1, -800);
@@ -338,7 +338,7 @@ public partial class GameManager : Node
 		Summon_Short_RandomX(0);
 		Summon_Short(21,0);
 		Summon_Short(20, -1000);
-		Summon_Short(20,-1000);
+		Summon_Short(20, 1000);
 
 		
 		await Task.Delay(12000);

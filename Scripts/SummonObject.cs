@@ -499,6 +499,7 @@ public partial class SummonObject : HealthObject
 				new string[]{"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"}
 			});
 			player.attackSeal = false;
+			player.col.SetProcess(true);
 			gm.appFadeOut(); //페이드인
 
 			while(true)
@@ -555,6 +556,7 @@ public partial class SummonObject : HealthObject
 				new string[]{"뭐라고?"}
 			});
 			player.attackSeal = false;
+			player.col.SetProcess(true);
 			gm.appFadeOut(); //페이드인
 
 			if(so1 != null) so1.QueueFree();
@@ -604,11 +606,12 @@ public partial class SummonObject : HealthObject
 				new string[]{"네가 최종보스구나??"},
 				new string[]{"위험물질. 처단한다."},
 				new string[]{"헛소리 마!!!!!!!!!!!!!!!", "우리 엄마 당장 풀어줘!!!!!!!!!!!!!!!!!!"},
-				new string[]{"........", "위험물질. 이해할 수 없는 말을 하고 있다."},
+				new string[]{"........", "위험물질. 무슨 말을 하는 건지 모르겠다."},
 				new string[]{"더이상 못 들어주겠다!!!!!", "결투다!!!!!!!!!!!!!!!!!!!"},
 				new string[]{"뼈도 못 추릴 것이다."}
 			});
 			player.attackSeal = false;
+			player.col.SetProcess(true);
 			gm.appFadeOut(); //페이드인
 
 
