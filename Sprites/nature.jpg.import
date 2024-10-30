@@ -3,19 +3,20 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bpf5268ib5bof"
-path="res://.godot/imported/nature.jpg-db15df3f0c51a5f271ddc170176d45f2.ctex"
+path.s3tc="res://.godot/imported/nature.jpg-db15df3f0c51a5f271ddc170176d45f2.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://Sprites/nature.jpg"
-dest_files=["res://.godot/imported/nature.jpg-db15df3f0c51a5f271ddc170176d45f2.ctex"]
+dest_files=["res://.godot/imported/nature.jpg-db15df3f0c51a5f271ddc170176d45f2.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

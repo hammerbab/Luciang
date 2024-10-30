@@ -10,11 +10,11 @@ public partial class Conversation : TextureRect
 
 	int charDelay = 50;
 
-    public override void _Process(double delta)
+    public override async void _Process(double delta)
     {
         base._Process(delta);
-
-		if(Input.IsActionJustPressed("clickL") || Input.IsActionJustPressed("clickR")) //대화빠르게
+		
+		if(Input.IsActionJustPressed("clickL")) //대화빠르게
 		{
 			charDelay = 0;
 		}
@@ -41,7 +41,7 @@ public partial class Conversation : TextureRect
 				convTextLabel.Text += "\n";
 			}
 
-			while(!autoskip && !(Input.IsActionJustPressed("clickL") || Input.IsActionJustPressed("clickR")))
+			while(!autoskip && !(Input.IsActionJustPressed("clickR")))
 			{
 				await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
 			}

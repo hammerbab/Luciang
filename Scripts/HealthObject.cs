@@ -17,6 +17,7 @@ public partial class HealthObject : RigidBody2D
 	[Export] public float range;
 	[Export] public int invin_time;
 	public bool is_invin;
+	public bool invin_automove;
 	protected bool player_effect_activate;
 
 	public bool dead = false;
@@ -29,11 +30,11 @@ public partial class HealthObject : RigidBody2D
 		curHP = maxHP;
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-		return;
-	}
+	// // Called every frame. 'delta' is the elapsed time since the previous frame.
+	// public override void _Process(double delta)
+	// {
+	// 	return;
+	// }
 
 	//음수일 경우 회복
 	public void GetDamage(int amount, bool ign_invin = false, bool no_invin = false)
@@ -42,20 +43,22 @@ public partial class HealthObject : RigidBody2D
 		{
 			curHP -= amount;
 			if(curHP >= maxHP) curHP = maxHP;
+
 			return;
 		}
 
-		if(!ign_invin && is_invin) return; //무적상태면 안 맞음(ign_invin: 무적을 씹는 공격엔 무력)
+		if((!ign_invin && is_invin) || invin_automove) return; //무적상태면 안 맞음(ign_invin: 무적을 씹는 공격엔 무력)
 
 		curHP -= amount; //체력 깎고
 		player_effect_activate = true;
+
+		if(Name == "Player") HitSound.Play();
+
 		if (curHP <= 0)
 		{
 			Die(); //0 이하 되면 사망
 			return;
 		}
-
-		HitSound.Play();
 		
 		Tween tween = GetTree().CreateTween();
 		if(no_invin || invin_time == 0) //매끄러운 색상 변경을 위해 무적 발동 여부에 따른 투명도 조정
@@ -88,13 +91,9 @@ public partial class HealthObject : RigidBody2D
 
 	private async void Die()
 	{
-		GD.Print(Name, "Dead");
-
 		dead = true;
 
 		is_invin = true;
-
-		DieSound.Play();
 		
 		col.Free();
 

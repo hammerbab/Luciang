@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://bf8rt07nx1orl"]
+
+[ext_resource type="Script" path="res://Scripts/EpilogueManager.gd" id="1_5yc4c"]
+[ext_resource type="Texture2D" uid="uid://c3nonffomd1i8" path="res://Sprites/Epilogue1.png" id="2_vabqu"]
+[ext_resource type="Texture2D" uid="uid://b0qm6j5vlyquy" path="res://Sprites/Epilogue2.png" id="3_7ofpw"]
+[ext_resource type="Texture2D" uid="uid://d4dnej0vsle6l" path="res://Sprites/Epilogue3.png" id="4_wrh7h"]
+[ext_resource type="Texture2D" uid="uid://j8wmrwqx4s76" path="res://Sprites/Epilogue4.png" id="5_oft61"]
+[ext_resource type="Texture2D" uid="uid://dncdt82afmtf4" path="res://Sprites/Epilogue5.png" id="6_8bn5a"]
+
+[node name="PrologueScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PrologueManager" type="Node" parent="." node_paths=PackedStringArray("picture")]
+script = ExtResource("1_5yc4c")
+picture = NodePath("../Pic")
+texture1 = ExtResource("2_vabqu")
+texture2 = ExtResource("3_7ofpw")
+texture3 = ExtResource("4_wrh7h")
+texture4 = ExtResource("5_oft61")
+texture5 = ExtResource("6_8bn5a")
+
+[node name="Pic" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 279.0
+offset_top = -17.0
+offset_right = 945.0
+offset_bottom = 649.0
+texture_normal = ExtResource("2_vabqu")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 137.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 70
+text = "에필로그"
+
+[connection signal="pressed" from="Pic" to="PrologueManager" method="_on_pic_pressed"]

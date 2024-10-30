@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://b11grw4mv5ng8"]
+
+[ext_resource type="Script" path="res://Scripts/Bullet.cs" id="1_1lm0n"]
+[ext_resource type="Texture2D" uid="uid://dsii8xd1qg3ag" path="res://Sprites/attackShine.png" id="2_ep2ur"]
+
+[sub_resource type="Animation" id="Animation_yjbid"]
+resource_name = "Shine"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(0.535887, 1.27456, 0.659754),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.7, 0.7), Vector2(0, 1.6)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 0.466516),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.705882), Color(0.662745, 0.662745, 0.662745, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jajoh"]
+_data = {
+"Shine": SubResource("Animation_yjbid")
+}
+
+[node name="Bullet" type="Area2D"]
+process_mode = 1
+scale = Vector2(1e-05, 1e-05)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_1lm0n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 3000
+texture = ExtResource("2_ep2ur")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jajoh")
+}

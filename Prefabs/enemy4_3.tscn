@@ -1,0 +1,145 @@
+[gd_scene load_steps=8 format=3 uid="uid://bb2hlb2cgty1a"]
+
+[ext_resource type="Script" path="res://Scripts/SummonObject.cs" id="1_3pvhw"]
+[ext_resource type="Texture2D" uid="uid://th8fiqs5fbjv" path="res://Sprites/replica1.png" id="2_3v82l"]
+[ext_resource type="Texture2D" uid="uid://dpl61cwvpu4xe" path="res://Sprites/select.png" id="3_ejenv"]
+
+[sub_resource type="Animation" id="Animation_pgkup"]
+resource_name = "circle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.701961)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.6, 1.6), Vector2(1.5, 1.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_q6iag"]
+resource_name = "dis"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1.5, 1.5), Vector2(1.8, 1), Vector2(0, 1.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ix2n8"]
+_data = {
+"circle": SubResource("Animation_pgkup"),
+"dis": SubResource("Animation_q6iag")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pk6cn"]
+radius = 207.333
+height = 538.667
+
+[node name="Sandbag" type="RigidBody2D" node_paths=PackedStringArray("selectCircle", "circlePlayer", "hpBar", "col", "spr")]
+process_mode = 1
+collision_layer = 3
+collision_mask = 3
+mass = 40.0
+sleeping = true
+lock_rotation = true
+freeze = true
+linear_damp = 49.175
+script = ExtResource("1_3pvhw")
+selectCircle = NodePath("Sprite2D/SelectCircle")
+circlePlayer = NodePath("Sprite2D/SelectCircle/AnimationPlayer")
+id = 43
+hpBar = NodePath("ProgressBar")
+killScore = 3000
+hitHeal = 2
+col = NodePath("CollisionShape2D")
+spr = NodePath("Sprite2D")
+maxHP = 80
+range = 100.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -50)
+texture = ExtResource("2_3v82l")
+offset = Vector2(0, -100)
+
+[node name="SelectCircle" type="Sprite2D" parent="Sprite2D"]
+visible = false
+position = Vector2(-7, -181)
+texture = ExtResource("3_ejenv")
+offset = Vector2(0, -128)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D/SelectCircle"]
+libraries = {
+"": SubResource("AnimationLibrary_ix2n8")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-9.333, -145)
+shape = SubResource("CapsuleShape2D_pk6cn")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+modulate = Color(1, 0, 0, 1)
+offset_left = -294.0
+offset_top = -501.0
+offset_right = 1.0
+offset_bottom = -460.0
+scale = Vector2(2, 2)
+max_value = 4.0
+show_percentage = false

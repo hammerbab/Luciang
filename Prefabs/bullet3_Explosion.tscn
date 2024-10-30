@@ -8,62 +8,76 @@ radius = 97.0
 height = 194.0
 
 [sub_resource type="Animation" id="Animation_yjbid"]
-resource_name = "Explosion"
+resource_name = "Bullet"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
+tracks/0/path = NodePath("Sprite2D:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 1),
-"transitions": PackedFloat32Array(0.535887, 1.41421, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(3, 3), Vector2(3.33, 3.33)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(0.662745, 0.662745, 0.662745, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:process_mode")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 4]
+}
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CollisionShape2D:process_mode")
+tracks/2/path = NodePath("CollisionShape2D:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.3),
+"times": PackedFloat32Array(0, 0.2, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [4, 0, 4]
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 1),
+"transitions": PackedFloat32Array(0.535887, 1.41421, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1), Vector2(1.15, 1.15)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jajoh"]
 _data = {
-"Explosion": SubResource("Animation_yjbid")
+"Bullet": SubResource("Animation_yjbid")
 }
 
 [node name="Bullet" type="Area2D"]
 process_mode = 1
-scale = Vector2(2.22, 2.22)
+scale = Vector2(2.3, 2.3)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_ltnno")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.662745, 0.662745, 0.662745, 0)
+scale = Vector2(1.15, 1.15)
 texture = ExtResource("2_uup2a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 process_mode = 4
+scale = Vector2(1e-05, 1e-05)
 shape = SubResource("CapsuleShape2D_vuhey")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

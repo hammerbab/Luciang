@@ -107,11 +107,11 @@ selectCircle = NodePath("Sprite2D/SelectCircle")
 circlePlayer = NodePath("Sprite2D/SelectCircle/AnimationPlayer")
 id = 32
 hpBar = NodePath("ProgressBar")
-killScore = 300
+killScore = 600
 hitHeal = 2
 col = NodePath("CollisionShape2D")
 spr = NodePath("Sprite2D")
-maxHP = 7
+maxHP = 4
 range = 100.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -50,6 +50,9 @@ public partial class Player : HealthObject
 
     public async override void _Process(double delta)
 	{
+		invin_automove = autoMove; //스테이지 넘어가는 연출 동안 무적
+
+
 		if(attackSeal)
 		{
 			fireTrigger = false;
@@ -62,7 +65,7 @@ public partial class Player : HealthObject
 		}
 		base._Process(delta);
 
-		normalCoolBlind.Scale = new Vector2(1, curNormalCool >= maxNormalCool ? 0 : 1 - (curNormalCool / maxNormalCool));
+		normalCoolBlind.Scale = attackSeal ? Vector2.One : new Vector2(1, curNormalCool >= maxNormalCool ? 0 : 1 - (curNormalCool / maxNormalCool));
 		dashCoolBlind.Scale = new Vector2(1, curDashCool >= maxDashCool ? 0 : 1 - (curDashCool / maxDashCool));
 
 		if(curHP <= 20 && ddalpiEffect.Visible == false)
@@ -120,7 +123,7 @@ public partial class Player : HealthObject
 				destination = clickPoint;
 				haveToMove = true;
 
-				curNormalCool += 0.3f; //땅클릭을 많이 하면 더 빠르게 쏨
+				curNormalCool += 1f; //땅클릭을 많이 하면 더 빠르게 쏨
 
 				Sprite2D mCirc = moveCirclePrefab.Instantiate<Sprite2D>(); //이동 표시 이펙트
 				mCirc.GlobalPosition = destination;
@@ -156,7 +159,7 @@ public partial class Player : HealthObject
 			moveDir = GlobalPosition.DirectionTo(clickPoint).Normalized();
 			LookAt(destination);
 
-			curNormalCool += 0.3f; //대시하면 공속 초기화
+			curNormalCool += 1f; //대시하면 공속 초기화
 
 			is_invin = true;
 
@@ -218,7 +221,7 @@ public partial class Player : HealthObject
 			LookAt(Vector2.Up * int.MaxValue);
 			return;
 		}
-		if(fireTrigger && targetBody != null && IsInstanceValid(targetBody) && !attackSeal)
+		if(fireTrigger && targetBody != null && IsInstanceValid(targetBody)&& !target.dead && !attackSeal)
 		{
 			if(GlobalPosition.DistanceTo(target.GlobalPosition) <= range) //사거리 안이다
 			{

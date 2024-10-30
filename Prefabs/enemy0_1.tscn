@@ -121,7 +121,9 @@ offset = Vector2(-7, -100)
 
 [node name="SelectCircle" type="Sprite2D" parent="Sprite2D"]
 visible = false
+modulate = Color(1, 1, 1, 0.701961)
 position = Vector2(-10, 26)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_d7mwa")
 offset = Vector2(0, -128)
 

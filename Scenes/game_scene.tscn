@@ -1,17 +1,23 @@
-[gd_scene load_steps=40 format=3 uid="uid://cddl3rp7s7hf6"]
+[gd_scene load_steps=64 format=3 uid="uid://cddl3rp7s7hf6"]
 
 [ext_resource type="Script" path="res://Scripts/GameManager.cs" id="1_23tam"]
 [ext_resource type="AudioStream" uid="uid://co1kjph8tdglo" path="res://Audios/루시앙의 엄마 찾아 삼만리.mp3" id="1_dnc0g"]
 [ext_resource type="Texture2D" uid="uid://brncnmh4wigoj" path="res://Sprites/blind.png" id="1_scvyo"]
+[ext_resource type="AudioStream" uid="uid://c6bpvkkn5gr7n" path="res://Audios/shoot-5-102360.mp3" id="2_1pj3u"]
 [ext_resource type="AudioStream" uid="uid://c4cyxfwfty5ro" path="res://Audios/shoot0.wav" id="2_4t1l6"]
 [ext_resource type="PackedScene" uid="uid://05383nyoe8sc" path="res://Prefabs/enemy1_0.tscn" id="2_5vtot"]
 [ext_resource type="PackedScene" uid="uid://bcyd3vtgdhppm" path="res://Prefabs/enemy1_1.tscn" id="3_ce2om"]
+[ext_resource type="AudioStream" uid="uid://rqaguoi46702" path="res://Audios/mixkit-fast-car-drive-by-1538.wav" id="3_e7l8e"]
 [ext_resource type="Texture2D" uid="uid://dvv8mrw16iuxq" path="res://Sprites/NormalCool.png" id="3_emi1w"]
-[ext_resource type="AudioStream" uid="uid://c1tchd8x03lqx" path="res://Audios/impactPlank_medium_004.ogg" id="3_fprrm"]
 [ext_resource type="PackedScene" uid="uid://dg1uo48l3fc8t" path="res://Prefabs/bullet0_Bullet.tscn" id="3_fqiu5"]
+[ext_resource type="AudioStream" uid="uid://cmcterhuiwuly" path="res://Audios/whip-2-242215.mp3" id="3_i4r8t"]
 [ext_resource type="Script" path="res://Scripts/Player.cs" id="3_s46px"]
+[ext_resource type="AudioStream" uid="uid://xekqwgx5k0wp" path="res://Audios/ding-101377.mp3" id="4_0jx2d"]
 [ext_resource type="AudioStream" uid="uid://blga8af1y1s7t" path="res://Audios/mixkit-8-bit-bomb-explosion-2811.wav" id="4_2pxl0"]
 [ext_resource type="Texture2D" uid="uid://dnwddx6his6t4" path="res://Sprites/CoolBlind.png" id="4_04d6k"]
+[ext_resource type="AudioStream" uid="uid://durivpcixn3e3" path="res://Audios/laser-03-39231.mp3" id="4_5xxmq"]
+[ext_resource type="AudioStream" uid="uid://b48jymwlmdtel" path="res://Audios/medium-explosion-40472.mp3" id="4_dmct1"]
+[ext_resource type="AudioStream" uid="uid://khoej65m4b2q" path="res://Audios/wtf_01-96364.mp3" id="4_ijqi4"]
 [ext_resource type="Texture2D" uid="uid://bujwlbki10u0o" path="res://Sprites/DashCool.png" id="4_uhitk"]
 [ext_resource type="Texture2D" uid="uid://cb6tggtqhlsrf" path="res://Sprites/Luciang.png" id="5_hns12"]
 [ext_resource type="Texture2D" uid="uid://bpf5268ib5bof" path="res://Sprites/nature.jpg" id="5_mvhx1"]
@@ -19,6 +25,8 @@
 [ext_resource type="PackedScene" uid="uid://b57pgpe6jiagy" path="res://Prefabs/move.tscn" id="6_1snwy"]
 [ext_resource type="PackedScene" uid="uid://cbbuwct2nh2k5" path="res://Scenes/game_over_scene.tscn" id="6_8oy25"]
 [ext_resource type="Script" path="res://Scripts/Conversation.cs" id="6_f1oq5"]
+[ext_resource type="AudioStream" uid="uid://by2khn8gog8xp" path="res://Audios/sword-schwing-40520.mp3" id="7_03hju"]
+[ext_resource type="AudioStream" uid="uid://rmfnlxr2dylw" path="res://Audios/retro-hurt-1-236672.ogg" id="7_bxf1s"]
 [ext_resource type="Texture2D" uid="uid://dp0nsqm6aaa16" path="res://Sprites/dess.jpg" id="9_3jj3t"]
 [ext_resource type="PackedScene" uid="uid://bl4tb6dwr4u5v" path="res://Prefabs/enemy1_9.tscn" id="10_fb1e0"]
 [ext_resource type="Texture2D" uid="uid://cirknruqpun0x" path="res://Sprites/jung.jpg" id="10_yihto"]
@@ -31,10 +39,26 @@
 [ext_resource type="PackedScene" uid="uid://coy6thyiev4i4" path="res://Prefabs/enemy9_1.tscn" id="15_ctcml"]
 [ext_resource type="PackedScene" uid="uid://b2y4fuy2tx6i7" path="res://Prefabs/bullet1_Whip.tscn" id="16_2l3c3"]
 [ext_resource type="PackedScene" uid="uid://bea5yrda010hm" path="res://Prefabs/enemy3_0.tscn" id="16_6sqc2"]
+[ext_resource type="Texture2D" uid="uid://d34qum4c12yu0" path="res://Sprites/Lab.png" id="16_jcigp"]
 [ext_resource type="PackedScene" uid="uid://cok6okbjrulor" path="res://Prefabs/enemy3_1.tscn" id="18_hampp"]
 [ext_resource type="PackedScene" uid="uid://bgk3ouyc7kk3f" path="res://Prefabs/enemy3_2.tscn" id="19_mpwdt"]
 [ext_resource type="PackedScene" uid="uid://dcajnnc0g43aw" path="res://Prefabs/bullet2_Voice.tscn" id="19_xem00"]
+[ext_resource type="PackedScene" uid="uid://babl0jety6eog" path="res://Prefabs/enemy3_9.tscn" id="25_dov7k"]
+[ext_resource type="PackedScene" uid="uid://bex4wmyfhlwmj" path="res://Prefabs/enemy4_0.tscn" id="28_lx4b0"]
+[ext_resource type="PackedScene" uid="uid://d07n0kelthlos" path="res://Prefabs/enemy4_1.tscn" id="30_726lb"]
 [ext_resource type="PackedScene" uid="uid://dkhfu6ebopigy" path="res://Prefabs/bullet3_Explosion.tscn" id="30_j3go8"]
+[ext_resource type="PackedScene" uid="uid://f0pi5d1shv5e" path="res://Prefabs/enemy4_2.tscn" id="31_qchod"]
+[ext_resource type="PackedScene" uid="uid://b11grw4mv5ng8" path="res://Prefabs/Bullet9_Shine.tscn" id="31_yu4up"]
+[ext_resource type="PackedScene" uid="uid://dhir5ibc3ntc" path="res://Prefabs/bullet4_Bomb.tscn" id="32_8u8wg"]
+[ext_resource type="PackedScene" uid="uid://bb2hlb2cgty1a" path="res://Prefabs/enemy4_3.tscn" id="32_vdk28"]
+[ext_resource type="PackedScene" uid="uid://p3nuu2nd0s83" path="res://Prefabs/enemy4_4.tscn" id="33_j2bfd"]
+[ext_resource type="PackedScene" uid="uid://k266ma68ewkk" path="res://Prefabs/bullet5_Charge.tscn" id="33_p4xrn"]
+[ext_resource type="PackedScene" uid="uid://bqdi1kkt46yt2" path="res://Prefabs/enemy4_5.tscn" id="34_nfku8"]
+[ext_resource type="PackedScene" uid="uid://b8psdhre60nsi" path="res://Prefabs/enemy4_9.tscn" id="35_vvdd5"]
+[ext_resource type="PackedScene" uid="uid://cyuuw33s6s5b0" path="res://Prefabs/bullet6_Laser.tscn" id="37_by6rm"]
+[ext_resource type="PackedScene" uid="uid://bbnwwy14wev6e" path="res://Prefabs/bullet7_Yudo.tscn" id="38_5l3ha"]
+[ext_resource type="PackedScene" uid="uid://qo3ixscgcy7g" path="res://Prefabs/enemy9_2.tscn" id="38_w33em"]
+[ext_resource type="PackedScene" uid="uid://iik3poj52kje" path="res://Prefabs/bullet8_Spear8.tscn" id="48_wpdy2"]
 
 [sub_resource type="Animation" id="Animation_ksjvi"]
 resource_name = "Ddalpi"
@@ -77,13 +101,55 @@ autoplay = true
 [node name="ShootSounds" type="Node" parent="."]
 
 [node name="0" type="AudioStreamPlayer" parent="ShootSounds"]
+stream = ExtResource("2_1pj3u")
+volume_db = -5.0
+max_polyphony = 12000
+
+[node name="1" type="AudioStreamPlayer" parent="ShootSounds"]
+stream = ExtResource("3_i4r8t")
+max_polyphony = 12000
+
+[node name="2" type="AudioStreamPlayer" parent="ShootSounds"]
+stream = ExtResource("4_ijqi4")
+max_polyphony = 12000
+
+[node name="3" type="AudioStreamPlayer" parent="ShootSounds"]
+stream = ExtResource("4_dmct1")
+max_polyphony = 12000
+
+[node name="4" type="AudioStreamPlayer" parent="ShootSounds"]
 stream = ExtResource("2_4t1l6")
+max_polyphony = 12000
+
+[node name="5" type="AudioStreamPlayer" parent="ShootSounds"]
+stream = ExtResource("3_e7l8e")
+max_polyphony = 12000
+
+[node name="6" type="AudioStreamPlayer" parent="ShootSounds"]
+stream = ExtResource("4_5xxmq")
+max_polyphony = 12000
+
+[node name="7" type="AudioStreamPlayer" parent="ShootSounds"]
+stream = ExtResource("2_1pj3u")
+pitch_scale = 0.96
+max_polyphony = 12000
+
+[node name="8" type="AudioStreamPlayer" parent="ShootSounds"]
+stream = ExtResource("7_03hju")
+pitch_scale = 0.96
+max_polyphony = 12000
+
+[node name="9" type="AudioStreamPlayer" parent="ShootSounds"]
+stream = ExtResource("4_0jx2d")
+max_polyphony = 12000
 
 [node name="Hit_Sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_fprrm")
+stream = ExtResource("7_bxf1s")
+max_polyphony = 10
 
 [node name="Die_Sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_2pxl0")
+max_polyphony = 10
 
 [node name="Camera2D" type="Camera2D" parent="."]
 process_mode = 1
@@ -132,7 +198,8 @@ libraries = {
 
 [node name="StageResetBlind" type="TextureRect" parent="Camera2D"]
 process_mode = 1
-modulate = Color(1, 0, 0, 0)
+visible = false
+modulate = Color(1, 0, 0, 1)
 self_modulate = Color(0, 0, 0, 1)
 z_index = 4010
 offset_left = -11279.0
@@ -142,6 +209,41 @@ offset_bottom = -10425.0
 scale = Vector2(100, 100)
 texture = ExtResource("1_scvyo")
 metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Camera2D"]
+offset_left = 547.0
+offset_top = 320.0
+offset_right = 961.0
+offset_bottom = 459.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 80
+text = "<쿨타임>"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Camera2D"]
+z_index = 3001
+offset_left = 440.0
+offset_top = 548.0
+offset_right = 854.0
+offset_bottom = 687.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+text = "공격"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Camera2D"]
+z_index = 3001
+offset_left = 685.0
+offset_top = 548.0
+offset_right = 1099.0
+offset_bottom = 687.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+text = "대쉬"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="NormalCool" type="TextureRect" parent="Camera2D"]
 process_mode = 1
@@ -225,7 +327,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Blind" type="TextureRect" parent="Camera2D/Conversation"]
-modulate = Color(0.286275, 0.286275, 0.286275, 0.243137)
+modulate = Color(0.286275, 0.286275, 0.286275, 0.509804)
 z_as_relative = false
 layout_mode = 0
 offset_left = -1452.0
@@ -235,20 +337,40 @@ offset_bottom = -1613.0
 scale = Vector2(20, 20)
 texture = ExtResource("1_scvyo")
 
-[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("ShootSound", "HitSound", "DieSound", "bg1", "bg2", "scoreText", "convBox", "stageRsBlind")]
+[node name="ApproachBlind" type="TextureRect" parent="Camera2D"]
+modulate = Color(0, 0, 0, 0)
+offset_left = -1200.0
+offset_top = -2500.0
+offset_right = -800.0
+offset_bottom = 2500.0
+texture = ExtResource("1_scvyo")
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/ApproachBlind"]
+layout_mode = 0
+offset_left = 2400.0
+offset_right = 2800.0
+offset_bottom = 5000.0
+scale = Vector2(-1, 1)
+texture = ExtResource("1_scvyo")
+
+[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("GameScene", "cam", "ShootSound", "HitSound", "DieSound", "bg1", "bg2", "player", "scoreText", "convBox", "stageRsBlind", "approachBlind")]
 process_mode = 1
 script = ExtResource("1_23tam")
-ShootSound = [NodePath("../ShootSounds/0"), NodePath("../ShootSounds/0"), NodePath("../ShootSounds/0"), NodePath("../ShootSounds/0")]
+GameScene = NodePath("..")
+cam = NodePath("../Camera2D")
+ShootSound = [NodePath("../ShootSounds/0"), NodePath("../ShootSounds/1"), NodePath("../ShootSounds/2"), NodePath("../ShootSounds/3"), NodePath("../ShootSounds/4"), NodePath("../ShootSounds/5"), NodePath("../ShootSounds/6"), NodePath("../ShootSounds/7"), NodePath("../ShootSounds/8"), NodePath("../ShootSounds/9")]
 HitSound = NodePath("../Hit_Sound")
 DieSound = NodePath("../Die_Sound")
-bg_imgs = Array[Texture2D]([ExtResource("5_mvhx1"), ExtResource("9_3jj3t"), ExtResource("10_yihto")])
+bg_imgs = Array[Texture2D]([ExtResource("5_mvhx1"), ExtResource("9_3jj3t"), ExtResource("10_yihto"), ExtResource("16_jcigp")])
 bg1 = NodePath("../BG/BG1")
 bg2 = NodePath("../BG/BG2")
-smnObjScenes = Array[PackedScene]([ExtResource("5_pn16s"), ExtResource("15_cfu04"), null, null, null, null, null, null, null, null, ExtResource("2_5vtot"), ExtResource("3_ce2om"), null, null, null, null, null, null, null, ExtResource("10_fb1e0"), ExtResource("12_pmbyb"), ExtResource("13_qchhf"), null, null, null, null, null, null, null, ExtResource("14_fi18v"), ExtResource("16_6sqc2"), ExtResource("18_hampp"), ExtResource("19_mpwdt"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, ExtResource("11_udwr0"), ExtResource("15_ctcml"), null, null, null, null, null, null, null])
-bulletPrefabs = Array[PackedScene]([ExtResource("3_fqiu5"), ExtResource("16_2l3c3"), ExtResource("19_xem00"), ExtResource("30_j3go8")])
+player = NodePath("../Player")
+smnObjScenes = Array[PackedScene]([ExtResource("5_pn16s"), ExtResource("15_cfu04"), null, null, null, null, null, null, null, null, ExtResource("2_5vtot"), ExtResource("3_ce2om"), null, null, null, null, null, null, null, ExtResource("10_fb1e0"), ExtResource("12_pmbyb"), ExtResource("13_qchhf"), null, null, null, null, null, null, null, ExtResource("14_fi18v"), ExtResource("16_6sqc2"), ExtResource("18_hampp"), ExtResource("19_mpwdt"), null, null, null, null, null, null, ExtResource("25_dov7k"), ExtResource("28_lx4b0"), ExtResource("30_726lb"), ExtResource("31_qchod"), ExtResource("32_vdk28"), ExtResource("33_j2bfd"), ExtResource("34_nfku8"), null, null, null, ExtResource("35_vvdd5"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, ExtResource("11_udwr0"), ExtResource("15_ctcml"), ExtResource("38_w33em"), null, null, null, null, null, null])
+bulletPrefabs = Array[PackedScene]([ExtResource("3_fqiu5"), ExtResource("16_2l3c3"), ExtResource("19_xem00"), ExtResource("30_j3go8"), ExtResource("32_8u8wg"), ExtResource("33_p4xrn"), ExtResource("37_by6rm"), ExtResource("38_5l3ha"), ExtResource("48_wpdy2"), ExtResource("31_yu4up")])
 scoreText = NodePath("../Camera2D/Score")
 convBox = NodePath("../Camera2D/Conversation")
 stageRsBlind = NodePath("../Camera2D/StageResetBlind")
+approachBlind = NodePath("../Camera2D/ApproachBlind")
 
 [node name="BG" type="Node2D" parent="."]
 process_mode = 1
@@ -284,7 +406,7 @@ shape = SubResource("RectangleShape2D_h4tx8")
 
 [node name="Player" type="RigidBody2D" parent="." node_paths=PackedStringArray("hurtEffect", "ddalpiEffect", "DashEff", "normalCoolBlind", "dashCoolBlind", "col", "spr") groups=["Player"]]
 process_mode = 1
-position = Vector2(0, 400)
+position = Vector2(0, 200)
 rotation = -1.5708
 collision_layer = 15
 collision_mask = 15
@@ -319,5 +441,5 @@ offset = Vector2(0, 20)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 process_mode = 1
-position = Vector2(0, 10)
+position = Vector2(-5, 0)
 shape = SubResource("CircleShape2D_6by1y")
