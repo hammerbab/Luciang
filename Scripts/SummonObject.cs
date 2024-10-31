@@ -506,7 +506,7 @@ public partial class SummonObject : HealthObject
 			{
 				if(player.dead || dead) break; //자신 혹은 플레이어 사망시 움직임 멈춤
 				moveDir = GlobalPosition.DirectionTo(player.GlobalPosition);
-				moveSpd = GlobalPosition.DistanceTo(player.GlobalPosition) * 0.4f;
+				moveSpd = GlobalPosition.DistanceTo(player.GlobalPosition) * 0.3f;
 
 				if(so1 != null) so1.QueueFree();
 				so1 = gm.Summon(42, GlobalPosition); //자폭병기소환
@@ -533,12 +533,12 @@ public partial class SummonObject : HealthObject
 					gm.SummonBullet(1, player.GlobalPosition, Vector2.Zero, 30, 600, false, this);
 				}
 				
-				await Task.Delay(1500);
+				await Task.Delay(1200);
 				if(player.dead || dead) break; //자신 혹은 플레이어 사망시 움직임 멈춤
 
 				if(player.dead || dead) break; //자신 혹은 플레이어 사망시 움직임 멈춤
 				moveDir = GlobalPosition.DirectionTo(player.GlobalPosition);
-				moveSpd = GlobalPosition.DistanceTo(player.GlobalPosition) * 0.4f;
+				moveSpd = GlobalPosition.DistanceTo(player.GlobalPosition) * 0.3f;
 
 				if(so2 != null) so2.QueueFree();
 				so2 = gm.Summon(42, GlobalPosition); //자폭병기소환
@@ -565,7 +565,7 @@ public partial class SummonObject : HealthObject
 					gm.SummonBullet(1, player.GlobalPosition, Vector2.Zero, 30, 600, false, this);
 				}
 				
-				await Task.Delay(1500);
+				await Task.Delay(1200);
 				if(player.dead || dead) break; //자신 혹은 플레이어 사망시 움직임 멈춤
 			}
 		}
