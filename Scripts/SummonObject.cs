@@ -737,8 +737,9 @@ public partial class SummonObject : HealthObject
 				{
 					var ranVector = new Vector2(random.RandfRange(-800, 800),random.RandfRange(-800, 800));
 					gm.SummonBullet(6, GlobalPosition+ranVector, (GlobalPosition+ranVector).DirectionTo(player.GlobalPosition), 30, 0, false, this, null, true, true, false, 2000);
-					gm.SummonBullet(6, GlobalPosition+ranVector, (GlobalPosition+ranVector).DirectionTo(player.GlobalPosition), 30, 0, false, this, null, false, true, false, 2000);
-					
+					var o = gm.SummonBullet(6, GlobalPosition+ranVector, (GlobalPosition+ranVector).DirectionTo(player.GlobalPosition), 30, 0, false, this, null, false, true, false, 2000);
+					o.Scale = Vector2.One;
+
 					await Task.Delay(800-i*(curHP > 75 ? 20 : 33));
 					if(player.dead || dead) break; //자신 혹은 플레이어 사망시 움직임 멈춤
 				}
@@ -755,7 +756,7 @@ public partial class SummonObject : HealthObject
 				gm.SummonBullet(6, GlobalPosition + new Vector2(0, -1200), Vector2.Down, 30, 0, false, this, null, false, true, false, 2000);
 				gm.SummonBullet(6, GlobalPosition + new Vector2(512, -1200), Vector2.Down, 30, 0, false, this, null, false, true, false, 2000);
 				gm.SummonBullet(6, GlobalPosition + new Vector2(1024, -1200), Vector2.Down, 30, 0, false, this, null, false, true, false, 2000);
-				await Task.Delay(curHP > 75 ? 1200 : 600);
+				await Task.Delay(curHP > 75 ? 1200 : 800);
 				if(player.dead || dead) break; //자신 혹은 플레이어 사망시 움직임 멈춤
 				gm.SummonBullet(6, GlobalPosition + new Vector2(-1280, -1200), Vector2.Down, 30, 0, false, this, null, true, true, false, 2000);
 				gm.SummonBullet(6, GlobalPosition + new Vector2(-768, -1200), Vector2.Down, 30, 0, false, this, null, false, true, false, 2000);
@@ -763,7 +764,7 @@ public partial class SummonObject : HealthObject
 				gm.SummonBullet(6, GlobalPosition + new Vector2(256, -1200), Vector2.Down, 30, 0, false, this, null, false, true, false, 2000);
 				gm.SummonBullet(6, GlobalPosition + new Vector2(768, -1200), Vector2.Down, 30, 0, false, this, null, false, true, false, 2000);
 				gm.SummonBullet(6, GlobalPosition + new Vector2(1280, -1200), Vector2.Down, 30, 0, false, this, null, false, true, false, 2000);
-				await Task.Delay(curHP > 75 ? 1200 : 600);
+				await Task.Delay(curHP > 75 ? 1200 : 800);
 				if(player.dead || dead) break; //자신 혹은 플레이어 사망시 움직임 멈춤
 				gm.SummonBullet(6, GlobalPosition + new Vector2(-1024, -1200), Vector2.Down, 30, 0, false, this, null, true, true, false, 2000);
 				gm.SummonBullet(6, GlobalPosition + new Vector2(-512, -1200), Vector2.Down, 30, 0, false, this, null, false, true, false, 2000);

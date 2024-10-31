@@ -107,11 +107,11 @@ selectCircle = NodePath("Sprite2D/SelectCircle")
 circlePlayer = NodePath("Sprite2D/SelectCircle/AnimationPlayer")
 id = 49
 hpBar = NodePath("ProgressBar")
-killScore = 15000
+killScore = 20000
 hitHeal = 2
 col = NodePath("CollisionShape2D")
 spr = NodePath("Sprite2D")
-maxHP = 150
+maxHP = 15
 range = 100.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -138,10 +138,10 @@ shape = SubResource("CapsuleShape2D_pk6cn")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 modulate = Color(1, 0, 0, 1)
-offset_left = -313.0
-offset_top = -663.0
-offset_right = -18.0
-offset_bottom = -622.0
+offset_left = -296.0
+offset_top = -601.0
+offset_right = -1.0
+offset_bottom = -560.0
 scale = Vector2(2, 2)
 max_value = 4.0
 show_percentage = false
