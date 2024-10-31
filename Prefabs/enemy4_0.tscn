@@ -115,13 +115,15 @@ maxHP = 4
 range = 100.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 20)
+position = Vector2(0, 30)
 texture = ExtResource("2_mwqc5")
 offset = Vector2(-10, -100)
 
 [node name="SelectCircle" type="Sprite2D" parent="Sprite2D"]
 visible = false
-position = Vector2(-10, 26)
+modulate = Color(1, 1, 1, 0.701961)
+position = Vector2(-10, 35)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_yvsof")
 offset = Vector2(0, -128)
 

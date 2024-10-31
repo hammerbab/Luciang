@@ -111,19 +111,19 @@ hitHeal = 2
 col = NodePath("CollisionShape2D")
 spr = NodePath("Sprite2D")
 maxHP = 10
-range = 166.0
+range = 180.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(1, 0.501961, 0.501961, 1)
 z_index = 1
-position = Vector2(0, 20)
+position = Vector2(0, 30)
 texture = ExtResource("2_tqj0w")
 offset = Vector2(-10, -100)
 
 [node name="SelectCircle" type="Sprite2D" parent="Sprite2D"]
 visible = false
-modulate = Color(1, 1, 1, 0.701961)
-position = Vector2(-10, 26)
+modulate = Color(1, 1, 1, 0.940392)
+position = Vector2(-18, -20)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_1eljs")
 offset = Vector2(0, -128)
@@ -134,7 +134,7 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-10, -61)
+position = Vector2(-17, -60)
 shape = SubResource("CapsuleShape2D_mh6nl")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]

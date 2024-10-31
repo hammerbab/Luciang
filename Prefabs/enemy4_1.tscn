@@ -115,13 +115,15 @@ maxHP = 3
 range = 100.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 20)
+position = Vector2(9, 60)
 texture = ExtResource("2_prat6")
 offset = Vector2(-10, -100)
 
 [node name="SelectCircle" type="Sprite2D" parent="Sprite2D"]
 visible = false
+modulate = Color(1, 1, 1, 0.940392)
 position = Vector2(-10, 26)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_hibl0")
 offset = Vector2(0, -128)
 
@@ -131,7 +133,7 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-9, -95)
+position = Vector2(0, -66)
 shape = SubResource("CapsuleShape2D_mh6nl")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]

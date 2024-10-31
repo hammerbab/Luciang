@@ -120,6 +120,7 @@ scale = Vector2(1.8, 1.8)
 texture = ExtResource("2_4ki0i")
 
 [node name="SelectCircle" type="Sprite2D" parent="Sprite2D"]
+visible = false
 modulate = Color(1, 1, 1, 0.701961)
 position = Vector2(-5, 12.7778)
 scale = Vector2(1.5, 1.5)

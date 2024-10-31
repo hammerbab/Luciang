@@ -800,7 +800,8 @@ public partial class SummonObject : HealthObject
 			{
 				curHP = -999999999; //중복 방지를 위한 트리거
 
-				Node b = gm.SummonBullet(3, GlobalPosition, Vector2.Up, 20, 0, false, this, null, true, true, false, 900);
+				//사망시 자폭
+				Node b = gm.SummonBullet(3, GlobalPosition+Vector2.Up * 33f, Vector2.Up, 20, 0, false, this, null, true, true, false, 900);
 			}
 			if(id == 19 && curHP > -3000000)
 			{
