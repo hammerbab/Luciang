@@ -19,7 +19,7 @@ removeImidiately = false
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 8
 rotation = 1.5708
-scale = Vector2(0.5, 0.8)
+scale = Vector2(0.3, 0.8)
 texture = ExtResource("2_vwl77")
 offset = Vector2(0, -128)
 
