@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://x7w2q4u4g3ol" path="res://Sprites/spear.png" id="2_vwl77"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vuhey"]
-radius = 6.99996
+radius = 6.0
 height = 182.0
 
 [node name="Bullet" type="Area2D"]

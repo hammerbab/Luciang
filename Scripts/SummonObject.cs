@@ -646,10 +646,10 @@ public partial class SummonObject : HealthObject
 				{
 					await gm.SummonShine(GlobalPosition);
 					if(player.dead || dead) break; //자신 혹은 플레이어 사망시 움직임 멈춤
-					for(int i= 0; i < 16; i++)
+					for(int i= 0; i < 7; i++)
 					{
 						gm.SummonBullet(8, player.GlobalPosition, Vector2.Zero, 30, 0, false, this, null, true, true, false, i%2==0?2000:2001);
-						await Task.Delay(1000-i*12);
+						await Task.Delay(1000);
 						if(player.dead || dead) break; //자신 혹은 플레이어 사망시 움직임 멈춤
 					}
 				}
@@ -670,12 +670,12 @@ public partial class SummonObject : HealthObject
 				//유도탄 발사
 				await gm.SummonShine(GlobalPosition);
 				if(player.dead || dead) break; //자신 혹은 플레이어 사망시 움직임 멈춤
-				gm.SummonBullet(7, GlobalPosition, GlobalPosition.DirectionTo(player.GlobalPosition), 30, curHP > 75 ? 160 : 240, false, this, null, true, true, true, 5000);
+				gm.SummonBullet(7, GlobalPosition, GlobalPosition.DirectionTo(player.GlobalPosition), 30, curHP > 75 ? 200 : 280, false, this, null, true, true, true, 5000);
 				if(curHP <= 75)
 				{
 					await Task.Delay(500);
 					if(player.dead || dead) break; //자신 혹은 플레이어 사망시 움직임 멈춤
-					gm.SummonBullet(7, GlobalPosition, GlobalPosition.DirectionTo(player.GlobalPosition), 30, curHP > 75 ? 160 : 240, false, this, null, true, true, true, 5000);
+					gm.SummonBullet(7, GlobalPosition, GlobalPosition.DirectionTo(player.GlobalPosition), 30, curHP > 75 ? 200 : 280, false, this, null, true, true, true, 5000);
 
 				}//반피일 경우 2
 				
@@ -722,12 +722,12 @@ public partial class SummonObject : HealthObject
 				//유도탄 발사
 				await gm.SummonShine(GlobalPosition);
 				if(player.dead || dead) break; //자신 혹은 플레이어 사망시 움직임 멈춤
-				gm.SummonBullet(7, GlobalPosition, GlobalPosition.DirectionTo(player.GlobalPosition), 30, curHP > 75 ? 160 : 240, false, this, null, true, true, true, 5000);
+				gm.SummonBullet(7, GlobalPosition, GlobalPosition.DirectionTo(player.GlobalPosition), 30, curHP > 75 ? 200 : 280, false, this, null, true, true, true, 5000);
 				if(curHP <= 75)
 				{
 					await Task.Delay(500);
 					if(player.dead || dead) break; //자신 혹은 플레이어 사망시 움직임 멈춤
-					gm.SummonBullet(7, GlobalPosition, GlobalPosition.DirectionTo(player.GlobalPosition), 30, curHP > 75 ? 160 : 240, false, this, null, true, true, true, 5000);
+					gm.SummonBullet(7, GlobalPosition, GlobalPosition.DirectionTo(player.GlobalPosition), 30, curHP > 75 ? 200 : 280, false, this, null, true, true, true, 5000);
 
 				}//반피일 경우 2
 
@@ -1033,10 +1033,15 @@ public partial class SummonObject : HealthObject
 
 		if(followBullet != null&& followBullet.ProcessMode == ProcessModeEnum.Disabled) followBullet = null;
 
-		if(hpBar != null)
+		if(hpBar != null && IsInstanceValid(hpBar))
 		{
 			hpBar.MaxValue = maxHP;
 			hpBar.Value = curHP;
+		}
+
+		if(id == 49 && curHP <= 75)
+		{
+			Modulate = new Color(1,0.7f,0.7f,1);
 		}
     }
 }

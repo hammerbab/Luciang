@@ -748,7 +748,8 @@ public partial class GameManager : Node
 		{
 			for(int i = 0; i<8; i++)
 			{
-				Bullet b = GetChild(0).GetChild<Bullet>(i);
+				var a = target.GetChild(0);
+				var b = a.GetChild<Bullet>(i);
 				b.time = 0f;
 				b.canBeRmvd = false;
 				b.ProcessMode = ProcessModeEnum.Disabled;
