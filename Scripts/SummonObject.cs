@@ -197,10 +197,10 @@ public partial class SummonObject : HealthObject
 			{
 				if(player.dead || dead) break; //자신 혹은 플레이어 사망시 움직임 멈춤
 				moveDir = GlobalPosition.DirectionTo(player.GlobalPosition);
-				moveSpd = GlobalPosition.DistanceTo(player.GlobalPosition) * 0.4f;
+				moveSpd = GlobalPosition.DistanceTo(player.GlobalPosition) * 0.3f;
 				if(random.RandiRange(0, 1) == 0) gm.Summon(1, GlobalPosition); 
 
-				await Task.Delay(1000);
+				await Task.Delay(1500);
 
 				if(player.dead || dead) break; //자신 혹은 플레이어 사망시 움직임 멈춤
 				await gm.SummonShine(GlobalPosition);
@@ -211,32 +211,17 @@ public partial class SummonObject : HealthObject
 					if(player.dead || dead) break; //자신 혹은 플레이어 사망시 움직임 멈춤
 
 					Vector2 dir = GlobalPosition.DirectionTo(player.GlobalPosition);
-					Bullet genBullet = gm.SummonBullet(0, GlobalPosition, dir.Rotated(Mathf.DegToRad((i%2==0?i:-i)*6f)), 20, 700, false, this, null, i == 0);
+					Bullet genBullet = gm.SummonBullet(0, GlobalPosition, dir.Rotated(Mathf.DegToRad((i%2==0?i:-i)*7f)), 30, 700, false, this, null, i == 0);
 				}
 
-				await Task.Delay(random.RandiRange(500,1000));
-				if(GlobalPosition.DistanceTo(player.GlobalPosition) <= range)
-				{
-					gm.SummonBullet(1, player.GlobalPosition, Vector2.Zero, 20, 600, false, this);
-				}
-
-				if(player.dead || dead) break; //자신 혹은 플레이어 사망시 움직임 멈춤
-
-				await Task.Delay(random.RandiRange(500,1000));
+				await Task.Delay(300);
 				if(player.dead || dead) break; //자신 혹은 플레이어 사망시 움직임 멈춤
 				if(GlobalPosition.DistanceTo(player.GlobalPosition) <= range)
 				{
-					gm.SummonBullet(1, player.GlobalPosition, Vector2.Zero, 20, 600, false, this);
-				}
-
-				await Task.Delay(random.RandiRange(500,1000));
-				if(player.dead || dead) break; //자신 혹은 플레이어 사망시 움직임 멈춤
-				if(GlobalPosition.DistanceTo(player.GlobalPosition) <= range)
-				{
-					gm.SummonBullet(1, player.GlobalPosition, Vector2.Zero, 20, 600, false, this);
+					gm.SummonBullet(1, player.GlobalPosition, Vector2.Zero, 30, 600, false, this);
 				}
 				
-				await Task.Delay(random.RandiRange(500,1000));
+				await Task.Delay(1200);
 				if(player.dead || dead) break; //자신 혹은 플레이어 사망시 움직임 멈춤
 			}
 		}
@@ -367,10 +352,10 @@ public partial class SummonObject : HealthObject
 					if(player.dead || dead) break; //자신 혹은 플레이어 사망시 움직임 멈춤
 				}
 
-				if(so1 != null) so1.QueueFree();
+				if(IsInstanceValid(so1)) so1.GetDamage(9999, true);
 				so1 = gm.Summon(30 + random.RandiRange(0, 2), new Vector2(random.RandfRange(-600f, -350f), cam.GlobalPosition.Y-100));
 				so1.killScore = 0;
-				if(so2 != null) so2.QueueFree();
+				if(IsInstanceValid(so2)) so2.GetDamage(9999, true);
 				so2 = gm.Summon(30 + random.RandiRange(0, 2), new Vector2(random.RandfRange(350f, 600f), cam.GlobalPosition.Y-100));
 				so2.killScore = 0;
 
@@ -452,13 +437,13 @@ public partial class SummonObject : HealthObject
 
 			await Task.Delay(1000);
 
-			if(so1 != null) so1.QueueFree();
+			if(IsInstanceValid(so1)) so1.GetDamage(9999, true);
 			so1 = gm.Summon(40, cam.GlobalPosition + new Vector2(-600, -200));
 			(so1.col).QueueFree();
 			so1.hpBar.ProcessMode = ProcessModeEnum.Disabled;
 			so1.killScore = 0;
 			await Task.Delay(1000);
-			if(so2 != null) so2.QueueFree();
+			if(IsInstanceValid(so2))so2.GetDamage(9999, true);
 			so2 = gm.Summon(40, cam.GlobalPosition + new Vector2(600, -200));
 			(so2.col).QueueFree();
 			so2.hpBar.ProcessMode = ProcessModeEnum.Disabled;
@@ -508,7 +493,7 @@ public partial class SummonObject : HealthObject
 				moveDir = GlobalPosition.DirectionTo(player.GlobalPosition);
 				moveSpd = GlobalPosition.DistanceTo(player.GlobalPosition) * 0.3f;
 
-				if(so1 != null) so1.QueueFree();
+				if(IsInstanceValid(so1)) so1.GetDamage(9999, true);
 				so1 = gm.Summon(42, GlobalPosition); //자폭병기소환
 				so1.killScore = 0;
 
@@ -540,7 +525,7 @@ public partial class SummonObject : HealthObject
 				moveDir = GlobalPosition.DirectionTo(player.GlobalPosition);
 				moveSpd = GlobalPosition.DistanceTo(player.GlobalPosition) * 0.3f;
 
-				if(so2 != null) so2.QueueFree();
+				if(IsInstanceValid(so2)) so2.GetDamage(9999, true);
 				so2 = gm.Summon(42, GlobalPosition); //자폭병기소환
 				so2.killScore = 0;
 
@@ -591,12 +576,12 @@ public partial class SummonObject : HealthObject
 			player.col.SetProcess(true);
 			gm.appFadeOut(); //페이드인
 
-			if(so1 != null) so1.QueueFree();
+			if(IsInstanceValid(so1)) so1.GetDamage(9999, true);
 			so1 = gm.Summon(41, cam.GlobalPosition + new Vector2(-600, -200));
 			(so1.col).QueueFree();
 			so1.hpBar.ProcessMode = ProcessModeEnum.Disabled;
 			so1.killScore = 0;
-			if(so2 != null) so2.QueueFree();
+			if(IsInstanceValid(so2)) so2.GetDamage(9999, true);
 			so2 = gm.Summon(41, cam.GlobalPosition + new Vector2(600, -200));
 			(so2.col).QueueFree();
 			so2.hpBar.ProcessMode = ProcessModeEnum.Disabled;
@@ -720,14 +705,14 @@ public partial class SummonObject : HealthObject
 				if(player.dead || dead) break; //자신 혹은 플레이어 사망시 움직임 멈춤
 
 				//자폭병 소환
-				if(so1 != null) so1.QueueFree();
+				if(IsInstanceValid(so1)) so1.GetDamage(9999, true);
 				so1 = gm.Summon(42, GlobalPosition);
 				so1.killScore = 0;
 				await Task.Delay(1000);
 				if(player.dead || dead) break; //자신 혹은 플레이어 사망시 움직임 멈춤
 				if(curHP <= 75)
 				{
-					if(so2 != null) so2.QueueFree();
+					if(IsInstanceValid(so2)) so2.GetDamage(9999, true);
 					so2 = gm.Summon(42, GlobalPosition);
 					so2.killScore = 0;
 					}//반피일 경우 2마리
@@ -805,8 +790,8 @@ public partial class SummonObject : HealthObject
 			if(id != 0 && id != 1 && id != 40 && id != 41 && curHP > -300000)
 			{
 				curHP = -999999; //중복 방지를 위한 트리거
-				if(so1 != null) so1.QueueFree();
-				if(so2 != null) so2.QueueFree();
+				if(IsInstanceValid(so1)) so1.GetDamage(9999, true);
+				if(IsInstanceValid(so2)) so2.GetDamage(9999, true);
 				DieSound.Play();
 			}
 
@@ -858,10 +843,10 @@ public partial class SummonObject : HealthObject
 
 				await gm.Conversation(new string[]{"루시앙", "로라니", "루시앙", "로라니", "루시앙"},
 				new string[][]{new string[]{"알려달라고!!!!!!!"},
-				new string[]{"사실 모름 ㅋ"},
+				new string[]{"나도 몰라 꺼져"},
 				new string[]{"???    "},
 				new string[]{"ㅋ    "},
-				new string[]{"수상한 연구소가 보인다", "가보자"}});
+				new string[]{"...", "수상한 연구소가 보인다", "가보자"}});
 
 				gm.Summon(92, cam.GlobalPosition + Vector2.Up*1000); //스테이지 클리어 글자
 				gm.SummonStage4();
@@ -1013,7 +998,7 @@ public partial class SummonObject : HealthObject
 			{
 				GetDamage(999999999);
 				await gm.SummonShine(GlobalPosition);
-				gm.SummonBullet(3, GlobalPosition, Vector2.Zero, 40, 0, false, this, null, true, true, false, 900);
+				gm.SummonBullet(3, GlobalPosition, Vector2.Zero, 30, 0, false, this, null, true, true, false, 900);
 			}
 		}
 		if(id == 44)

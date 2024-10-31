@@ -9,7 +9,8 @@ public partial class ScoreLabel : Label
 	{
 		ScoreContainer scoCon = GetTree().Root.GetNode("ScoreContainer") as ScoreContainer; //점수 저장
 		Text = "점수 : " + scoCon.lastScore.ToString("0");
-		if(scoCon.lastScore > scoCon.highScore)
+		if(scoCon.stageID != 1) Text += "debug";
+		else if(scoCon.lastScore > scoCon.highScore)
 		{
 			Text += "\n하이스코어 경신!";
 			scoCon.highScore = scoCon.lastScore;

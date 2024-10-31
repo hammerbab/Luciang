@@ -52,7 +52,7 @@ public partial class HealthObject : RigidBody2D
 		curHP -= amount; //체력 깎고
 		player_effect_activate = true;
 
-		if(Name == "Player") HitSound.Play();
+		if(Name == "Player" && IsInstanceValid(this)) HitSound.Play();
 
 		if (curHP <= 0)
 		{
@@ -95,7 +95,7 @@ public partial class HealthObject : RigidBody2D
 
 		is_invin = true;
 		
-		col.Free();
+		if( IsInstanceValid(col)) col.Free();
 
 		var tween = GetTree().CreateTween();
 		tween.TweenProperty(spr, "modulate", new Color(1,0,0,0), 0.4f);
