@@ -110,7 +110,7 @@ hpBar = NodePath("ProgressBar")
 killScore = 8000
 col = NodePath("CollisionShape2D")
 spr = NodePath("Sprite2D")
-maxHP = 60
+maxHP = 45
 range = 250.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

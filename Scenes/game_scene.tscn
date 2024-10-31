@@ -111,6 +111,7 @@ max_polyphony = 12000
 
 [node name="2" type="AudioStreamPlayer" parent="ShootSounds"]
 stream = ExtResource("4_ijqi4")
+volume_db = -6.559
 max_polyphony = 12000
 
 [node name="3" type="AudioStreamPlayer" parent="ShootSounds"]

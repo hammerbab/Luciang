@@ -9,7 +9,7 @@ public partial class HealthObject : RigidBody2D
 	public AudioStreamPlayer HitSound;
 	public AudioStreamPlayer DieSound;
 
-	[Export] public Node2D col;
+	[Export] public CollisionShape2D col;
 	[Export] protected Sprite2D spr;
 
 	[Export] public int maxHP;

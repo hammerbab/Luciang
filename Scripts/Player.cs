@@ -154,6 +154,7 @@ public partial class Player : HealthObject
 		{
 			isDashing = true;
 			haveToMove = false;
+			
 			clickPoint = destination = GetGlobalMousePosition();
 
 			moveDir = GlobalPosition.DirectionTo(clickPoint).Normalized();
@@ -161,6 +162,7 @@ public partial class Player : HealthObject
 
 			curNormalCool += 1f; //대시하면 공속 초기화
 
+			col.Disabled = true;
 			is_invin = true;
 
 			DashEff.Visible = true;
@@ -175,6 +177,7 @@ public partial class Player : HealthObject
 
 			isDashing = false;
 			is_invin = false;
+			col.Disabled = false;
 			curDashCool = 0f;
 			maxDashCool = 2f;
 		}

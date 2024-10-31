@@ -110,7 +110,7 @@ killScore = 3000
 hitHeal = 2
 col = NodePath("CollisionShape2D")
 spr = NodePath("Sprite2D")
-maxHP = 70
+maxHP = 60
 range = 100.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
